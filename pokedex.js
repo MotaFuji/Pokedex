@@ -19,6 +19,10 @@ const btnWhiteRight = document.querySelector('#btn-white-right');
 const numberDisplay = document.querySelector('#number-display');
 const infoScreen = document.querySelector('#info-screen');
 const mainScreen = document.querySelector('#main-screen');
+const btnUp = document.querySelector('#btn-up');
+const btnDown = document.querySelector('#btn-down');
+const btnLeft = document.querySelector('#btn-left');
+const btnRigth = document.querySelector('#btn-rigth');
 
 key1.addEventListener('click', () => leituraTeclado('1'));
 key2.addEventListener('click', () => leituraTeclado('2'));
@@ -32,6 +36,42 @@ key9.addEventListener('click', () => leituraTeclado('9'));
 key10.addEventListener('click', () => leituraTeclado('0'));
 btnWhiteLeft.addEventListener('click', buscarPokemon);
 btnWhiteRight.addEventListener('click', apagar);
+
+btnUp.addEventListener('click', () => {
+    if (Number(numPokemon) < 1020)
+    {
+        numPokemon = String(Number(numPokemon) + 10);
+        estadoPokedex.digitando = true;
+        atualizarNumero(numPokemon);
+    }
+});
+
+btnDown.addEventListener('click', () => {
+    if (Number(numPokemon) > 0)
+    {
+        numPokemon = String(Number(numPokemon) - 10);
+        estadoPokedex.digitando = true;
+        atualizarNumero(numPokemon);
+    }
+});
+
+btnLeft.addEventListener('click', () => {
+    if (Number(numPokemon) > 0)
+    {
+        numPokemon = String(Number(numPokemon) - 1);
+        estadoPokedex.digitando = true;
+        atualizarNumero(numPokemon);
+    }
+});
+
+btnRight.addEventListener('click', () => {
+    if (Number(numPokemon) < 1025) 
+    {
+        numPokemon = String(Number(numPokemon) + 1);
+        estadoPokedex.digitando = true;
+        atualizarNumero(numPokemon);
+    }
+});
 
 function leituraTeclado(tecla)
 {
